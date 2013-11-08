@@ -27,9 +27,12 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-# Using factory_girl and faker to populate the database
+# Populate the database
 gem 'factory_girl_rails'
 gem 'faker'
+
+# Serialize models to JSON
+gem 'active_model_serializers'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

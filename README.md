@@ -2,5 +2,6 @@
 
 #### Dependecies:
 
-* Factory girl rails
-* Faker
+* factory_girl_rails
+* faker
+* active_model_serializers

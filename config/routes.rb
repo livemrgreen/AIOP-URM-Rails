@@ -1,5 +1,5 @@
 Urm::Application.routes.draw do
-  resources :users
+  resources :users, constraints: {format: :json}
 
   root "welcome#index"
 end
