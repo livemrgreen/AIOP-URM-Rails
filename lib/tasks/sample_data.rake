@@ -12,8 +12,11 @@ def make_users
 		email = Faker::Internet.email
 		admin = false
 		teacher = false
+		password = "foobar"
+		password_confirmation = "foobar"
 		User.create(name: name, email: email,
-					admin: admin, teacher: teacher)
+					admin: admin, teacher: teacher,
+					password: password, password_confirmation: password_confirmation)
 	end
 end
 
