@@ -7,16 +7,16 @@ namespace :db do
 end
 
 def make_users
+	admin = User.create(name: "admin", email: "admin@um2.fr",
+						admin: true, teacher: true,
+						password: "admin", password_confirmation: "admin")
+
 	15.times do |n|
 		name = Faker::Name.name
 		email = Faker::Internet.email
-		admin = false
-		teacher = false
-		password = "foobar"
-		password_confirmation = "foobar"
 		User.create(name: name, email: email,
-					admin: admin, teacher: teacher,
-					password: password, password_confirmation: password_confirmation)
+					admin: false, teacher: false,
+					password: "foobar", password_confirmation: "foobar")
 	end
 end
 

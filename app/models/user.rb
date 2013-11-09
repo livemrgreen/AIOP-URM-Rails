@@ -1,10 +1,10 @@
 class User < ActiveRecord::Base
 	before_save { self.email = email.downcase }
-	before_create :create_remember_token
+	before_create :create_bearer_token
 	
 	has_secure_password
 
-	def User.new_remember_token
+	def User.new_bearer_token
 		return SecureRandom.urlsafe_base64
 	end
 
@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
 	end
 
 	private
-		def create_remember_token
-			self.remember_token = User.encrypt(User.new_remember_token)
+		def create_bearer_token
+			self.bearer_token = User.encrypt(User.new_bearer_token)
 		end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131109093201) do
+ActiveRecord::Schema.define(version: 20131109130843) do
 
   create_table "buildings", force: true do |t|
     t.string   "label"
@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 20131109093201) do
     t.boolean  "teacher"
     t.boolean  "admin"
     t.string   "password_digest"
-    t.string   "remember_token"
+    t.string   "bearer_token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
