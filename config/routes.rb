@@ -1,4 +1,6 @@
 Urm::Application.routes.draw do
+  resources :users
+
   resources :reservations
 
   resources :rooms

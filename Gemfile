@@ -21,26 +21,16 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+# Turbolinks makes following links in your web application faster.
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-# Populate the database
-gem 'factory_girl_rails'
-gem 'faker'
-
-# Serialize models to JSON
-gem 'active_model_serializers'
-
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -50,3 +40,17 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+####################################################################################################
+############################################## Dependecies #########################################
+####################################################################################################
+
+# Populate the database
+gem 'factory_girl_rails'
+gem 'faker'
+
+# Serialize models to JSON
+gem 'active_model_serializers'
+
+# Use ActiveModel has_secure_password
+gem 'bcrypt-ruby', '~> 3.1.2'

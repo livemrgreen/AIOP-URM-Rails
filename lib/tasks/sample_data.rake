@@ -8,12 +8,12 @@ end
 
 def make_users
 	15.times do |n|
-		first_name = Faker::Name.name
-		last_name = Faker::Name.name
-		salt = "salt"
-		token = "token"
-		User.create(first_name: first_name, last_name: last_name,
-					salt: salt, token: token)
+		name = Faker::Name.name
+		email = Faker::Internet.email
+		admin = false
+		teacher = false
+		User.create(name: name, email: email,
+					admin: admin, teacher: teacher)
 	end
 end
 

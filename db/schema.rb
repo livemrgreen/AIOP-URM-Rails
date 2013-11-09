@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131108174739) do
+ActiveRecord::Schema.define(version: 20131109093201) do
 
   create_table "buildings", force: true do |t|
     t.string   "label"
@@ -93,12 +93,12 @@ ActiveRecord::Schema.define(version: 20131108174739) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "name"
+    t.string   "email"
     t.boolean  "teacher"
     t.boolean  "admin"
-    t.string   "salt"
-    t.string   "token"
+    t.string   "password_digest"
+    t.string   "remember_token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
