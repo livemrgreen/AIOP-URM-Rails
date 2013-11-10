@@ -1,3 +1,3 @@
 class TimeSlotSerializer < ActiveModel::Serializer
-  attributes :id, :start_date, :end_date
+  attributes :id, :start_time, :end_time
 end

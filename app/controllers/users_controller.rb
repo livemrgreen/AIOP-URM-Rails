@@ -9,8 +9,25 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def show
+		user = current_user
+		if user.admin?
+			render json: user, status: 200
+		else
+			render json: nil, status: 400
+		end
+	end
+
 	def create
-		render json: params[:token], status: 200
+		render json: nil, status: 400
+	end
+
+	def update
+		render json: nil, status: 400
+	end
+
+	def destroy
+		render json: nil, status: 400
 	end
 
 	private

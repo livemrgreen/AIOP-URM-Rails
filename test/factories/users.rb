@@ -7,6 +7,6 @@ FactoryGirl.define do
     teacher false
     admin false
     password_digest "MyString"
-    remember_token "MyString"
+    bearer_token "MyString"
   end
 end

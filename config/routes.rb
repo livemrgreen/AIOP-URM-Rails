@@ -1,4 +1,8 @@
 Urm::Application.routes.draw do
+  resources :reservation_requests
+
+  post '/signin', to: 'signin#create'
+
   resources :users
 
   resources :reservations
@@ -22,8 +26,6 @@ Urm::Application.routes.draw do
   resources :characteristics
 
   resources :buildings
-
-  resources :users, constraints: {format: :json}
 
   root "welcome#index"
 end

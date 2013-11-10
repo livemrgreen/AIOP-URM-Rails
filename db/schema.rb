@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131109130843) do
+ActiveRecord::Schema.define(version: 20131110175133) do
 
   create_table "buildings", force: true do |t|
     t.string   "label"
@@ -53,8 +53,16 @@ ActiveRecord::Schema.define(version: 20131109130843) do
     t.datetime "updated_at"
   end
 
+  create_table "reservation_requests", force: true do |t|
+    t.datetime "date_time"
+    t.integer  "time_slot_id"
+    t.integer  "teaching_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "reservations", force: true do |t|
-    t.date     "date"
+    t.datetime "date_time"
     t.integer  "time_slot_id"
     t.integer  "room_id"
     t.integer  "teaching_id"
@@ -86,8 +94,8 @@ ActiveRecord::Schema.define(version: 20131109130843) do
   end
 
   create_table "time_slots", force: true do |t|
-    t.date     "start_date"
-    t.date     "end_date"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
