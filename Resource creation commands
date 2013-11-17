@@ -1,4 +1,4 @@
-rails g resource User username:string password_digest:string access_token:string isAdmin:boolean teacher_id:integer
+rails g resource User username:string access_token:string isAdmin:boolean teacher_id:integer
 
 rails g resource Teacher first_name:string last_name:string
 
@@ -25,3 +25,7 @@ rails g resource ReservationRequest date_time:datetime teaching_id:integer
 rails g resource Room label:string capacity:integer building_id:integer
 
 rails g resource Reservation date_time:datetime time_slot_id:integer romm_id:integer teaching_id:integer
+
+rails g controller signin
+
+rails g migration add_password_digest
