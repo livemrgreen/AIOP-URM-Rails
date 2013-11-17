@@ -1,32 +1,4 @@
 Urm::Application.routes.draw do
-  resources :reservations
-
-  resources :rooms
-
-  resources :reservation_requests
-
-  resources :teachings
-
-  resources :lessons
-
-  resources :subjects
-
-  resources :mods
-
-  resources :lesson_types
-
-  resources :groups
-
-  resources :time_slots
-
-  resources :characteristics
-
-  resources :buildings
-
-  resources :teachers
-
-  resources :users
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
