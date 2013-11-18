@@ -3,6 +3,7 @@ class CreateReservationRequests < ActiveRecord::Migration
     create_table :reservation_requests do |t|
       t.datetime :date_time
       t.integer :teaching_id
+      t.integer :time_slot_id
 
       t.timestamps
     end
