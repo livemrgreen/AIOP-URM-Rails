@@ -1,20 +1,11 @@
 class UsersController < ApplicationController
 
 	def index
-		if authorized_user?
-			users = User.select("id, username")
-			render json: users.to_json(only: [:id, :username]), status: 200			
+		users = User.all
+		if users
+			render json: users, status: 200
 		else
 			render json: nil, status: 401
-		end
-	end
-
-	def show
-		user = current_user
-		if user.admin?
-			render json: user, status: 200
-		else
-			render json: nil, status: 400
 		end
 	end
 

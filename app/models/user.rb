@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+	belongs_to :teacher, :dependent => :delete
+
 	before_save { self.username = username.downcase }
 	before_create :create_access_token
 	

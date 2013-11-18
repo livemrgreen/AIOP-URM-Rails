@@ -26,7 +26,8 @@ def make_teachers
 end
 
 def make_users
-	admin = User.create(username: "admin", password: "admin", password_confirmation: "admin")
+	admin = User.create(username: "admin", teacher_id: 1,
+						password: "admin", password_confirmation: "admin")
 
 	15.times do |n|
 		User.create(username: Faker::Name.name, 
