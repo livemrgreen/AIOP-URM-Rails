@@ -33,6 +33,7 @@ class UsersController < ApplicationController
 	private
 		def authorized_user?
 			token = params[:bearer_token]
+			token = User.encrypt(token)
 			if token != nil
 				user = User.find_by(bearer_token: token)
 				return (user != nil)
