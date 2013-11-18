@@ -12,113 +12,323 @@ namespace :db do
 		make_subjects
 		make_lessons
 		make_teachings
-		make_reservation_requests
 		make_rooms
-		make_reservations
+		make_characteristics_rooms
 	end
 end
 
 def make_teachers
-	15.times do |n|
-		Teacher.create(first_name: Faker::Name.first_name,
-						last_name: Faker::Name.last_name)
-	end
+	Teacher.create(first_name: "Anne", last_name: "Laurent")
+	Teacher.create(first_name: "Bernard", last_name: "Fallery")
+	Teacher.create(first_name: "Isabelle", last_name: "Bourdon")
+	Teacher.create(first_name: "Lysianne", last_name: "Buisson")
+	Teacher.create(first_name: "Michèle", last_name: "Cart")
+	Teacher.create(first_name: "Jacques", last_name: "Ruiz")
+	Teacher.create(first_name: "Thomas", last_name: "Izard")
+	Teacher.create(first_name: "Esther", last_name: "Pacitti")
+	Teacher.create(first_name: "Corinne", last_name: "Seguin")
+	Teacher.create(first_name: "Anne-Laure", last_name: "De Lauzun")
+	Teacher.create(first_name: "Tiberiu", last_name: "Stratulat")
+	Teacher.create(first_name: "Michel", last_name: "Sala")
+	Teacher.create(first_name: "Marc", last_name: "Dumas")
 end
 
 def make_users
-	admin = User.create(username: "admin", teacher_id: 1,
+	admin = User.create(username: "admin", teacher_id: 1, isAdmin: true,
 						password: "admin", password_confirmation: "admin")
 
-	15.times do |n|
-		User.create(username: Faker::Name.name, 
-					password: "foobar", password_confirmation: "foobar",
-					teacher_id: (n + 1))
-	end
+	User.create(username: "annelaurent",
+				password: "annelaurent", password_confirmation: "annelaurent",
+				isAdmin: false, teacher_id: 1)
+	User.create(username: "bernardfallery",
+				password: "bernardfallery", password_confirmation: "bernardfallery",
+				isAdmin: false, teacher_id: 2)
+	User.create(username: "isabellebourdon",
+				password: "isabellebourdon", password_confirmation: "isabellebourdon",
+				isAdmin: false, teacher_id: 3)
+	User.create(username: "lysiannebuisson",
+				password: "lysiannebuisson", password_confirmation: "lysiannebuisson",
+				isAdmin: false, teacher_id: 4)
+	User.create(username: "michelecart",
+				password: "michelecart", password_confirmation: "michelecart",
+				isAdmin: false, teacher_id: 5)
+	User.create(username: "jacquesruiz",
+				password: "jacquesruiz", password_confirmation: "jacquesruiz",
+				isAdmin: false, teacher_id: 6)
+	User.create(username: "thomasizard",
+				password: "thomasizard", password_confirmation: "thomasizard",
+				isAdmin: false, teacher_id: 7)
+	User.create(username: "estherpacitti",
+				password: "estherpacitti", password_confirmation: "estherpacitti",
+				isAdmin: false, teacher_id: 8)
+	User.create(username: "corinneseguin",
+				password: "corinneseguin", password_confirmation: "corinneseguin",
+				isAdmin: false, teacher_id: 9)
+	User.create(username: "annelauredelauzun",
+				password: "annelauredelauzun", password_confirmation: "annelauredelauzun",
+				isAdmin: false, teacher_id: 10)
+	User.create(username: "tiberiustratulat",
+				password: "tiberiustratulat", password_confirmation: "tiberiustratulat",
+				isAdmin: false, teacher_id: 11)
+	User.create(username: "michelsala",
+				password: "michelsala", password_confirmation: "michelsala",
+				isAdmin: false, teacher_id: nil)
+	User.create(username: "marcdumas",
+				password: "marcdumas", password_confirmation: "marcdumas",
+				isAdmin: false, teacher_id: 13)
 end
 
 def make_buildings
-	15.times do |n|
-		Building.create(label: Faker::Lorem.word)
-	end
+	Building.create(label: "Polytech")
 end
 
 def make_characteristics
-	15.times do |n|
-		label = Faker::Lorem.word
-		Characteristic.create(label: label)
-	end
+	Characteristic.create(label: "Projecteur")
+	Characteristic.create(label: "Amphithéâtre")
+	Characteristic.create(label: "Prises")
+	Characteristic.create(label: "Micro")
+	Characteristic.create(label: "TP")
 end
 
 def make_time_slots
-	TimeSlot.create(start_time: "8:00:00", end_time:"9:30:00");
-	TimeSlot.create(start_time: "9:45:00", end_time:"11:15:00");
-	TimeSlot.create(start_time: "11:30:00", end_time:"13:00:00");
-	TimeSlot.create(start_time: "13:15:00", end_time:"14:45:00");
-	TimeSlot.create(start_time: "15:00:00", end_time:"16:30:00");
-	TimeSlot.create(start_time: "16:45:00", end_time:"18:15:00");
-	TimeSlot.create(start_time: "18:30:00", end_time:"20:00:00");
+	TimeSlot.create(start_time: "8:00:00", end_time:"9:30:00")
+	TimeSlot.create(start_time: "9:45:00", end_time:"11:15:00")
+	TimeSlot.create(start_time: "11:30:00", end_time:"13:00:00")
+	TimeSlot.create(start_time: "14:00:00", end_time:"15:30:00")
+	TimeSlot.create(start_time: "15:45:00", end_time:"17:15:00")
 end
 
 def make_groups
-	15.times do |n|
-		label = Faker::Lorem.word
-		Group.create(label: label, parent_id: 1)
-	end	
+	Group.create(label: "IG4", parent_id: nil)
+	Group.create(label: "IG4 TP1", parent_id: 1)
+	Group.create(label: "IG4 TP2", parent_id: 1)
+	Group.create(label: "IG4 G1 ANG", parent_id: 1)
+	Group.create(label: "IG4 G2 ANG", parent_id: 1)
+	Group.create(label: "IG4 G3 ANG", parent_id: 1)
 end
 
 def make_lesson_types
-	15.times do |n|
-		label = Faker::Lorem.word
-		LessonType.create(label: label)
-	end
+	LessonType.create(label: "CM")
+	LessonType.create(label: "TD")
+	LessonType.create(label: "TP")
 end
 
 def make_mods
-	15.times do |n|
-		label = Faker::Lorem.word
-		Mod.create(label: label, module_manager_id: 1)
-	end
+	Mod.create(label: "Conception de Bases de Données", module_manager_id: 1)
+	Mod.create(label: "Système et Réseaux", module_manager_id: 4)
+	Mod.create(label: "Entreprendre et Agir", module_manager_id: 2)
+	Mod.create(label: "Entrepreneuriale", module_manager_id: 3)
+	Mod.create(label: "Langues et Communication", module_manager_id: 5)
 end
 
 def make_subjects
-	15.times do |n|
-		label = Faker::Lorem.word
-		Subject.create(label: label, module_id: (n + 1))
-	end
+	Subject.create(label: "Conception par Objet", module_id: 1)
+	Subject.create(label: "Bases de Données Relationnelles Objet", module_id: 1)
+	Subject.create(label: "Système d'Exploitation", module_id: 2)
+	Subject.create(label: "Réseaux", module_id: 2)
+	Subject.create(label: "Simulation d'Entreprise", module_id: 3)
+	Subject.create(label: "Si et Marketing", module_id: 3)
+	Subject.create(label: "Management des Systèmes d'Information", module_id: 3)
+	Subject.create(label: "Techniques de Gestion de Projets.", module_id: 4)
+	Subject.create(label: "Méthodologie de Gestion de Projets", module_id: 4)
+	Subject.create(label: "Anglais", module_id: 5)
+	Subject.create(label: "Insertion Professionnelle", module_id: 5)
+	Subject.create(label: "Communication", module_id: 5)
 end
 
 def make_lessons
-	15.times do |n|
-		label = Faker::Lorem.word
-		Lesson.create(label: label, lesson_type_id: (n + 1),
-						subject_id: (n + 1), )
-	end
+	Lesson.create(label: "Cours 1", lesson_type_id: 1, subject_id: 1)
+	Lesson.create(label: "Cours 2", lesson_type_id: 2, subject_id: 1)
+	Lesson.create(label: "Cours 3", lesson_type_id: 3, subject_id: 1)
+	Lesson.create(label: "Cours 1", lesson_type_id: 1, subject_id: 2)
+	Lesson.create(label: "Cours 2", lesson_type_id: 2, subject_id: 2)
+	Lesson.create(label: "Cours 3", lesson_type_id: 3, subject_id: 2)
+	Lesson.create(label: "Cours 1", lesson_type_id: 1, subject_id: 3)
+	Lesson.create(label: "Cours 2", lesson_type_id: 2, subject_id: 3)
+	Lesson.create(label: "Cours 3", lesson_type_id: 3, subject_id: 3)
+	Lesson.create(label: "Cours 1", lesson_type_id: 1, subject_id: 4)
+	Lesson.create(label: "Cours 2", lesson_type_id: 2, subject_id: 4)
+	Lesson.create(label: "Cours 3", lesson_type_id: 3, subject_id: 4)
+	Lesson.create(label: "Cours 1", lesson_type_id: 1, subject_id: 5)
+	Lesson.create(label: "Cours 2", lesson_type_id: 2, subject_id: 5)
+	Lesson.create(label: "Cours 3", lesson_type_id: 3, subject_id: 5)
+	Lesson.create(label: "Cours 1", lesson_type_id: 1, subject_id: 6)
+	Lesson.create(label: "Cours 2", lesson_type_id: 2, subject_id: 6)
+	Lesson.create(label: "Cours 3", lesson_type_id: 3, subject_id: 6)
+	Lesson.create(label: "Cours 1", lesson_type_id: 1, subject_id: 7)
+	Lesson.create(label: "Cours 2", lesson_type_id: 2, subject_id: 7)
+	Lesson.create(label: "Cours 3", lesson_type_id: 3, subject_id: 7)
+	Lesson.create(label: "Cours 1", lesson_type_id: 1, subject_id: 8)
+	Lesson.create(label: "Cours 2", lesson_type_id: 2, subject_id: 8)
+	Lesson.create(label: "Cours 3", lesson_type_id: 3, subject_id: 8)
+	Lesson.create(label: "Cours 1", lesson_type_id: 1, subject_id: 9)
+	Lesson.create(label: "Cours 2", lesson_type_id: 2, subject_id: 9)
+	Lesson.create(label: "Cours 3", lesson_type_id: 3, subject_id: 9)
+	Lesson.create(label: "Cours 1", lesson_type_id: 1, subject_id: 10)
+	Lesson.create(label: "Cours 2", lesson_type_id: 2, subject_id: 10)
+	Lesson.create(label: "Cours 3", lesson_type_id: 3, subject_id: 10)
+	Lesson.create(label: "Cours 1", lesson_type_id: 1, subject_id: 11)
+	Lesson.create(label: "Cours 2", lesson_type_id: 2, subject_id: 11)
+	Lesson.create(label: "Cours 3", lesson_type_id: 3, subject_id: 11)
+	Lesson.create(label: "Cours 1", lesson_type_id: 1, subject_id: 12)
+	Lesson.create(label: "Cours 2", lesson_type_id: 2, subject_id: 12)
+	Lesson.create(label: "Cours 3", lesson_type_id: 3, subject_id: 12)
 end
 
 def make_teachings
-	15.times do |n|
-		Teaching.create(group_id: (n + 1), lesson_id: (n + 1),
-						teacher_id: (n + 1))
-	end
-end
-
-def make_reservation_requests
-	15.times do |n|
-		ReservationRequest.create(date_time: Time.now, time_slot_id: (n + 1),
-									teaching_id: (n + 1))
-	end
+	Teaching.create(group_id: 6, lesson_id: 36, teacher_id: 13)
+	Teaching.create(group_id: 4, lesson_id: 2, teacher_id: 12)
+	Teaching.create(group_id: 5, lesson_id: 3, teacher_id: 11)
+	Teaching.create(group_id: 1, lesson_id: 7, teacher_id: 10)
+	Teaching.create(group_id: 2, lesson_id: 33, teacher_id: 9)
+	Teaching.create(group_id: 3, lesson_id: 30, teacher_id: 1)
+	Teaching.create(group_id: 5, lesson_id: 1, teacher_id: 4)
+	Teaching.create(group_id: 1, lesson_id: 4, teacher_id: 3)
+	Teaching.create(group_id: 2, lesson_id: 5, teacher_id: 13)
+	Teaching.create(group_id: 3, lesson_id: 6, teacher_id: 2)
+	Teaching.create(group_id: 6, lesson_id: 8, teacher_id: 1)
+	Teaching.create(group_id: 3, lesson_id: 9, teacher_id: 13)
+	Teaching.create(group_id: 4, lesson_id: 13, teacher_id: 7)
+	Teaching.create(group_id: 1, lesson_id: 12, teacher_id: 8)
+	Teaching.create(group_id: 1, lesson_id: 17, teacher_id: 5)
+	Teaching.create(group_id: 4, lesson_id: 16, teacher_id: 9)
+	Teaching.create(group_id: 5, lesson_id: 11, teacher_id: 10)
+	Teaching.create(group_id: 6, lesson_id: 15, teacher_id: 12)
+	Teaching.create(group_id: 2, lesson_id: 19, teacher_id: 13)
+	Teaching.create(group_id: 6, lesson_id: 18, teacher_id: 11)
+	Teaching.create(group_id: 1, lesson_id: 21, teacher_id: 10)
+	Teaching.create(group_id: 3, lesson_id: 20, teacher_id: 8)
+	Teaching.create(group_id: 4, lesson_id: 14, teacher_id: 9)
+	Teaching.create(group_id: 1, lesson_id: 22, teacher_id: 4)
+	Teaching.create(group_id: 1, lesson_id: 23, teacher_id: 3)
+	Teaching.create(group_id: 2, lesson_id: 25, teacher_id: 1)
+	Teaching.create(group_id: 5, lesson_id: 26, teacher_id: 2)
+	Teaching.create(group_id: 5, lesson_id: 32, teacher_id: 5)
+	Teaching.create(group_id: 1, lesson_id: 31, teacher_id: 12)
+	Teaching.create(group_id: 6, lesson_id: 29, teacher_id: 13)
+	Teaching.create(group_id: 3, lesson_id: 28, teacher_id: 3)
+	Teaching.create(group_id: 6, lesson_id: 27, teacher_id: 7)
+	Teaching.create(group_id: 4, lesson_id: 34, teacher_id: 2)
+	Teaching.create(group_id: 6, lesson_id: 35, teacher_id: 3)
+	Teaching.create(group_id: 3, lesson_id: 10, teacher_id: 13)
+	Teaching.create(group_id: 3, lesson_id: 24, teacher_id: 13)
 end
 
 def make_rooms
-	label = Faker::Lorem.word
-	15.times do |n|
-		Room.create(label: label, capacity: Random.new.rand(30..60), building_id: (n + 1))
-	end
+	Room.create(label: "Amphithéâtre", capacity: 200, building_id: 1)
+	Room.create(label: "SC001", capacity: 100, building_id: 1)
+	Room.create(label: "SC002", capacity: 100, building_id: 1)
+	Room.create(label: "SC003", capacity: 50, building_id: 1)
+	Room.create(label: "SC004", capacity: 50, building_id: 1)
+	Room.create(label: "TP1", capacity: 20, building_id: 1)
+	Room.create(label: "TP2", capacity: 20, building_id: 1)
+	Room.create(label: "TP3", capacity: 20, building_id: 1)
+	Room.create(label: "TP4", capacity: 20, building_id: 1)
+	Room.create(label: "TP5", capacity: 10, building_id: 1)
+	Room.create(label: "SC101", capacity: 50, building_id: 1)
+	Room.create(label: "SC102", capacity: 50, building_id: 1)
+	Room.create(label: "SC201", capacity: 50, building_id: 1)
+	Room.create(label: "SC202", capacity: 50, building_id: 1)
 end
 
-def make_reservations
-	15.times do |n|
-		Reservation.create(date_time: Time.now, time_slot_id: (n + 1),
-							room_id: (n + 1), teaching_id: (n + 1))
-	end
+def make_characteristics_rooms
+	room = Room.find_by(id: 1)
+	characteristic = Characteristic.find_by(id: 1)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 1)
+	characteristic = Characteristic.find_by(id: 2)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 2)
+	characteristic = Characteristic.find_by(id: 1)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 2)
+	characteristic = Characteristic.find_by(id: 2)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 3)
+	characteristic = Characteristic.find_by(id: 1)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 3)
+	characteristic = Characteristic.find_by(id: 3)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 4)
+	characteristic = Characteristic.find_by(id: 1)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 4)
+	characteristic = Characteristic.find_by(id: 3)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 5)
+	characteristic = Characteristic.find_by(id: 1)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 5)
+	characteristic = Characteristic.find_by(id: 3)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 6)
+	characteristic = Characteristic.find_by(id: 1)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 6)
+	characteristic = Characteristic.find_by(id: 4)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 6)
+	characteristic = Characteristic.find_by(id: 5)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 7)
+	characteristic = Characteristic.find_by(id: 1)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 7)
+	characteristic = Characteristic.find_by(id: 4)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 7)
+	characteristic = Characteristic.find_by(id: 5)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 8)
+	characteristic = Characteristic.find_by(id: 1)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 8)
+	characteristic = Characteristic.find_by(id: 4)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 8)
+	characteristic = Characteristic.find_by(id: 5)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 9)
+	characteristic = Characteristic.find_by(id: 1)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 9)
+	characteristic = Characteristic.find_by(id: 4)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 9)
+	characteristic = Characteristic.find_by(id: 5)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 1)
+	characteristic = Characteristic.find_by(id: 1)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 1)
+	characteristic = Characteristic.find_by(id: 4)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 1)
+	characteristic = Characteristic.find_by(id: 5)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 1)
+	characteristic = Characteristic.find_by(id: 1)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 1)
+	characteristic = Characteristic.find_by(id: 3)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 1)
+	characteristic = Characteristic.find_by(id: 1)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 1)
+	characteristic = Characteristic.find_by(id: 3)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 1)
+	characteristic = Characteristic.find_by(id: 1)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 1)
+	characteristic = Characteristic.find_by(id: 3)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 1)
+	characteristic = Characteristic.find_by(id: 1)
+	room.characteristics << characteristic
+	room = Room.find_by(id: 1)
+	characteristic = Characteristic.find_by(id: 3)
+	room.characteristics << characteristic
 end
