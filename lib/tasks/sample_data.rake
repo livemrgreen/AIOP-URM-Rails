@@ -298,37 +298,37 @@ def make_characteristics_rooms
 	room = Room.find_by(id: 9)
 	characteristic = Characteristic.find_by(id: 5)
 	room.characteristics << characteristic
-	room = Room.find_by(id: 1)
+	room = Room.find_by(id: 10)
 	characteristic = Characteristic.find_by(id: 1)
 	room.characteristics << characteristic
-	room = Room.find_by(id: 1)
+	room = Room.find_by(id: 10)
 	characteristic = Characteristic.find_by(id: 4)
 	room.characteristics << characteristic
-	room = Room.find_by(id: 1)
+	room = Room.find_by(id: 10)
 	characteristic = Characteristic.find_by(id: 5)
 	room.characteristics << characteristic
-	room = Room.find_by(id: 1)
+	room = Room.find_by(id: 11)
 	characteristic = Characteristic.find_by(id: 1)
 	room.characteristics << characteristic
-	room = Room.find_by(id: 1)
+	room = Room.find_by(id: 11)
 	characteristic = Characteristic.find_by(id: 3)
 	room.characteristics << characteristic
-	room = Room.find_by(id: 1)
+	room = Room.find_by(id: 12)
 	characteristic = Characteristic.find_by(id: 1)
 	room.characteristics << characteristic
-	room = Room.find_by(id: 1)
+	room = Room.find_by(id: 12)
 	characteristic = Characteristic.find_by(id: 3)
 	room.characteristics << characteristic
-	room = Room.find_by(id: 1)
+	room = Room.find_by(id: 13)
 	characteristic = Characteristic.find_by(id: 1)
 	room.characteristics << characteristic
-	room = Room.find_by(id: 1)
+	room = Room.find_by(id: 13)
 	characteristic = Characteristic.find_by(id: 3)
 	room.characteristics << characteristic
-	room = Room.find_by(id: 1)
+	room = Room.find_by(id: 14)
 	characteristic = Characteristic.find_by(id: 1)
 	room.characteristics << characteristic
-	room = Room.find_by(id: 1)
+	room = Room.find_by(id: 14)
 	characteristic = Characteristic.find_by(id: 3)
 	room.characteristics << characteristic
 end
