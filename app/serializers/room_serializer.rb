@@ -1,5 +1,5 @@
 class RoomSerializer < ActiveModel::Serializer
-  attributes :id, :label, :capacity, :building_id
+  attributes :id, :label, :capacity
 
-  has_many :characteristics, embed: :ids
+  has_one :building
 end

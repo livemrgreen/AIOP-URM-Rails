@@ -1,5 +1,5 @@
 class SubjectSerializer < ActiveModel::Serializer
-  attributes :id, :label, :module_id
+  attributes :id, :label
 
-  has_many :lessons, embed: :ids
+  has_one :module
 end

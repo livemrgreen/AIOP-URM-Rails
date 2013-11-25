@@ -2,7 +2,7 @@ class ModsController < ApplicationController
 	def index
 		mods = Mod.all
 		if mods
-			render json: mods, status: 200
+			render json: mods, root: "modules", status: 200
 		else
 			render json: nil, status: 400
 		end
@@ -11,7 +11,7 @@ class ModsController < ApplicationController
 	def show
 		mod = Mod.find_by(id: params[:id])
 		if mod
-			render json: mod, status: 200
+			render json: mod, root: "module", status: 200
 		else
 			render json: nil, status: 400
 		end
