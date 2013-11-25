@@ -14,6 +14,7 @@ namespace :db do
 		make_teachings
 		make_rooms
 		make_characteristics_rooms
+		make_reservation_requests
 	end
 end
 
@@ -330,4 +331,10 @@ def make_characteristics_rooms
 	room = Room.find_by(id: 14)
 	characteristic = Characteristic.find_by(id: 3)
 	room.characteristics << characteristic
+end
+
+def make_reservation_requests
+	15.times do |n|
+		ReservationRequest.create(date_time: Time.now, teaching_id: Random.rand(1..36), time_slot_id: Random.rand(1..5))
+	end
 end

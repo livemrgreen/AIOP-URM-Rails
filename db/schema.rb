@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20131125115946) do
     t.datetime "date_time"
     t.integer  "teaching_id"
     t.integer  "time_slot_id"
+    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
