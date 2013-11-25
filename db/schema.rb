@@ -113,6 +113,7 @@ ActiveRecord::Schema.define(version: 20131125115946) do
     t.integer  "group_id"
     t.integer  "lesson_id"
     t.integer  "teacher_id"
+    t.integer  "reservation_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

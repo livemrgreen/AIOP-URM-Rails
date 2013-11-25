@@ -32,6 +32,7 @@ Urm::Application.routes.draw do
 
   post '/signin', to: 'signin#create'
 
+  get '/teachers/:id/reservations', to: 'teachers#reservations'
   get '/teachers/:id/reservation_requests', to: 'teachers#reservation_requests'
   get '/teachers/:id/available_reservation_requests', to: 'teachers#available_reservation_requests'
 

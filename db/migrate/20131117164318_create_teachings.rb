@@ -4,6 +4,7 @@ class CreateTeachings < ActiveRecord::Migration
       t.integer :group_id
       t.integer :lesson_id
       t.integer :teacher_id
+      t.integer :reservation_id
 
       t.timestamps
     end
