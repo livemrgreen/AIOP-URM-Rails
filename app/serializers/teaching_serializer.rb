@@ -5,5 +5,5 @@ class TeachingSerializer < ActiveModel::Serializer
   has_one :group, embed: :objects
   has_one :reservation, embed: :objects
 
-  has_many :reservation_request, embed: :ids
+  has_many :reservation_requests, embed: :ids
 end

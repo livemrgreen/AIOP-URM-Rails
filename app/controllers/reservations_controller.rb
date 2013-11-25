@@ -7,4 +7,13 @@ class ReservationsController < ApplicationController
 			render json: nil, status: 400
 		end
 	end
+
+	def show
+		reservation = Reservation.find_by(id: params[:id])
+		if reservation
+			render json: reservation, status: 200
+		else
+			render json: nil, status: 400
+		end
+	end
 end

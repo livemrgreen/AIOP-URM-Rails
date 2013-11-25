@@ -11,11 +11,11 @@ class ReservationRequestsController < ApplicationController
 	end
 
 	def show
-		@user = current_user
-		if @user.teacher?
-			render json: @user.mods, status: 200
+		reservation_request = ReservationRequest.find_by(id: params[:id])
+		if reservation_request
+			render json: reservation_request, status: 200
 		else
-			render json: nil, status: 200
+			render json: nil, status: 400
 		end
 	end
 end

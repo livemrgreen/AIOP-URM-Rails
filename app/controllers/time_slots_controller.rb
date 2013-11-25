@@ -7,4 +7,13 @@ class TimeSlotsController < ApplicationController
 			render json: nil, status: 401
 		end
 	end
+
+	def show
+		time_slot = TimeSlot.find_by(id: params[:id])
+		if time_slot
+			render json: time_slot, status: 200
+		else
+			render json: nil, status: 400
+		end
+	end
 end

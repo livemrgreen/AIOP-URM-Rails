@@ -11,7 +11,7 @@ Urm::Application.routes.draw do
 
   resources :subjects
 
-  resources :mods
+  resources :mods, :path => "modules"
 
   resources :lesson_types
 

@@ -9,16 +9,13 @@ class UsersController < ApplicationController
 		end
 	end
 
-	def create
-		render json: nil, status: 400
-	end
-
-	def update
-		render json: nil, status: 400
-	end
-
-	def destroy
-		render json: nil, status: 400
+	def show
+		user = User.find_by(id: params[:id])
+		if user
+			render json: user, status: 200
+		else
+			render json: nil, status: 400
+		end
 	end
 
 	private
