@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131118162857) do
+ActiveRecord::Schema.define(version: 20131125115946) do
 
   create_table "buildings", force: true do |t|
     t.string   "label"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20131118162857) do
 
   create_table "characteristics", force: true do |t|
     t.string   "label"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "characteristics_reservation_requests", force: true do |t|
+    t.integer  "characteristic_id"
+    t.integer  "reservation_request_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

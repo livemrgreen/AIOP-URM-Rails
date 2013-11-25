@@ -29,3 +29,7 @@ rails g resource Reservation date_time:datetime time_slot_id:integer room_id:int
 rails g controller signin
 
 rails g migration add_password_digest
+
+rails g migration add_characteristics_rooms_table
+
+rails g migration add_characteristics_reservation_requests_table
