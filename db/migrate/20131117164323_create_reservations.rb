@@ -5,6 +5,7 @@ class CreateReservations < ActiveRecord::Migration
       t.integer :time_slot_id
       t.integer :room_id
       t.integer :teaching_id
+      t.integer :reservation_request_id
 
       t.timestamps
     end

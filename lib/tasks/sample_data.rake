@@ -334,7 +334,9 @@ def make_characteristics_rooms
 end
 
 def make_reservation_requests
+	statuses = ["-1", "-2", nil]
 	15.times do |n|
-		ReservationRequest.create(date_time: Time.now, teaching_id: Random.rand(1..36), time_slot_id: Random.rand(1..5))
+		ReservationRequest.create(date_time: Time.now, teaching_id: Random.rand(1..36),
+									time_slot_id: Random.rand(1..5), status: statuses.sample)
 	end
 end

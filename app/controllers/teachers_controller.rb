@@ -27,6 +27,10 @@ class TeachersController < ApplicationController
 					|current_teaching|
 					requests |= current_teaching.reservation_requests
 				}
+				requests = requests.select {
+					|current_request|
+					current_request.status == nil && current_request.reservation_id == nil
+				}
 				render json: requests.as_json(include: [:teaching, :reservation]),
 						root: "reservation_requests", status: 200
 			else
@@ -59,6 +63,10 @@ class TeachersController < ApplicationController
 		teachings.each {
 			|current_teaching|
 			requests |= current_teaching.reservation_requests
+		}
+		requests = requests.select {
+			|current_request|
+			current_request.status == nil && current_request.reservation_id == nil
 		}
 		render json: requests.as_json(include: [:teaching, :reservation]),
 						root: "reservation_requests", status: 200

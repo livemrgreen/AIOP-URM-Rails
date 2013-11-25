@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(version: 20131125115946) do
     t.integer  "teaching_id"
     t.integer  "time_slot_id"
     t.string   "status"
+    t.integer  "reservation_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -83,6 +84,7 @@ ActiveRecord::Schema.define(version: 20131125115946) do
     t.integer  "teaching_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "reservation_request_id"
   end
 
   create_table "rooms", force: true do |t|
