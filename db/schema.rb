@@ -68,23 +68,24 @@ ActiveRecord::Schema.define(version: 20131125115946) do
   end
 
   create_table "reservation_requests", force: true do |t|
-    t.date "date"
+    t.date     "date"
+    t.string   "status"
+    t.integer  "capacity"
     t.integer  "teaching_id"
     t.integer  "time_slot_id"
-    t.string   "status"
     t.integer  "reservation_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "reservations", force: true do |t|
-    t.date "date"
+    t.date     "date"
     t.integer  "time_slot_id"
     t.integer  "room_id"
     t.integer  "teaching_id"
+    t.integer  "reservation_request_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "reservation_request_id"
   end
 
   create_table "rooms", force: true do |t|

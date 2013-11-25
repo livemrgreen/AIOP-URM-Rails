@@ -39,6 +39,8 @@ Urm::Application.routes.draw do
   get '/groups/:id/reservations', to: 'groups#reservations'
   get '/groups/:id/available_teachings', to: 'groups#available_teachings'
 
+  get '/reservation_requests/:id/available_rooms', to: 'reservation_requests#available_rooms'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

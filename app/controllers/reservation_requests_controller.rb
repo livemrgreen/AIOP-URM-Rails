@@ -18,4 +18,40 @@ class ReservationRequestsController < ApplicationController
 			render json: nil, status: 400
 		end
 	end
+
+	def create
+		@request = ReservationRequest.new(request_params)
+		if @request.save
+			render json: nil, status: 200
+		else
+			render json: nil, status: 400
+		end
+	end
+
+	def available_rooms
+		request = ReservationRequest.find(params[:id])
+		wanted_characteristics = request.characteristics
+		wanted_capacity = request.capacity
+		rooms = Room.all
+		available_rooms = []
+		rooms.each {
+			|current_room|
+			intersect = (current_room.characteristics & wanted_characteristics)
+			current_room_is_acceptable = (intersect == wanted_characteristics)
+			if current_room_is_acceptable
+				available_rooms.push current_room
+			end
+		}
+		available_rooms.select {
+			|current_room|
+			current_room.capacity >= wanted_capacity
+		}
+		return available_rooms
+	end
+
+	private
+		def request_params
+			return params.require(:reservation_request).permit(:date,
+				:teaching_id, :time_slot_id)
+		end
 end

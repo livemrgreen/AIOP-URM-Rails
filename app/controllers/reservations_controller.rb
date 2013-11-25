@@ -16,4 +16,19 @@ class ReservationsController < ApplicationController
 			render json: nil, status: 400
 		end
 	end
+
+	def create
+		@resa = Reservation.new(reservation_params)
+		if @resa.save
+			render json: nil, status: 200
+		else
+			render json: nil, status: 400
+		end
+	end
+
+	private
+		def reservation_params
+			return params.require(:reservation).permit(:teaching_id,
+				:reservation_request_id, :time_slot_id, :room_id)
+		end
 end
