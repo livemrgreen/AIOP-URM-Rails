@@ -1,5 +1,5 @@
 class ModSerializer < ActiveModel::Serializer
-  attributes :id, :label, :module_manager_id
+  attributes :id, :label, :teacher_id
 
-  has_many :subjects
+  has_many :subjects, embed: :ids
 end

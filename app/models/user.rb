@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
 	
 	has_secure_password
 
+	def teacher?
+		return self.teacher_id
+	end
+
 	def User.new_access_token
 		return SecureRandom.urlsafe_base64
 	end

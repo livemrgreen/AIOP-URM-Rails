@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20131118162857) do
 
   create_table "mods", force: true do |t|
     t.string   "label"
-    t.integer  "module_manager_id"
+    t.integer  "teacher_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

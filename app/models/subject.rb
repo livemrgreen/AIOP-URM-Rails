@@ -1,5 +1,5 @@
 class Subject < ActiveRecord::Base
-	belongs_to :mod, :class_name => "Mod", :foreign_key => "module_id"
+	belongs_to :module, :class_name => "Mod"
 	
 	has_many :lessons
 end

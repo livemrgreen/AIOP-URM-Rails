@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :mod do
     label "MyString"
-    module_manager_id 1
+    teacher_id 1
   end
 end

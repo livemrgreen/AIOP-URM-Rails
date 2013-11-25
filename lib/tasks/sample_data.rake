@@ -34,9 +34,6 @@ def make_teachers
 end
 
 def make_users
-	admin = User.create(username: "admin", teacher_id: 1, isAdmin: true,
-						password: "admin", password_confirmation: "admin")
-
 	User.create(username: "annelaurent",
 				password: "annelaurent", password_confirmation: "annelaurent",
 				isAdmin: false, teacher_id: 1)
@@ -76,6 +73,8 @@ def make_users
 	User.create(username: "marcdumas",
 				password: "marcdumas", password_confirmation: "marcdumas",
 				isAdmin: false, teacher_id: 13)
+	admin = User.create(username: "admin", teacher_id: nil, isAdmin: true,
+						password: "admin", password_confirmation: "admin")
 end
 
 def make_buildings
@@ -114,11 +113,11 @@ def make_lesson_types
 end
 
 def make_mods
-	Mod.create(label: "Conception de Bases de Données", module_manager_id: 1)
-	Mod.create(label: "Système et Réseaux", module_manager_id: 4)
-	Mod.create(label: "Entreprendre et Agir", module_manager_id: 2)
-	Mod.create(label: "Entrepreneuriale", module_manager_id: 3)
-	Mod.create(label: "Langues et Communication", module_manager_id: 5)
+	Mod.create(label: "Conception de Bases de Données", teacher_id: 1)
+	Mod.create(label: "Système et Réseaux", teacher_id: 4)
+	Mod.create(label: "Entreprendre et Agir", teacher_id: 2)
+	Mod.create(label: "Entrepreneuriale", teacher_id: 3)
+	Mod.create(label: "Langues et Communication", teacher_id: 5)
 end
 
 def make_subjects

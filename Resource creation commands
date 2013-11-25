@@ -12,7 +12,7 @@ rails g resource Group label:string parent_id:integer
 
 rails g resource LessonType label:string
 
-rails g resource Mod label:string module_manager_id:integer
+rails g resource Mod label:string teacher_id:integer
 
 rails g resource Subject label:string module_id:integer
 
