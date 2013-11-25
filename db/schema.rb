@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 20131125115946) do
   end
 
   create_table "reservation_requests", force: true do |t|
-    t.datetime "date_time"
+    t.date "date"
     t.integer  "teaching_id"
     t.integer  "time_slot_id"
     t.string   "status"
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 20131125115946) do
   end
 
   create_table "reservations", force: true do |t|
-    t.datetime "date_time"
+    t.date "date"
     t.integer  "time_slot_id"
     t.integer  "room_id"
     t.integer  "teaching_id"
@@ -119,8 +119,8 @@ ActiveRecord::Schema.define(version: 20131125115946) do
   end
 
   create_table "time_slots", force: true do |t|
-    t.string   "start_time"
-    t.string   "end_time"
+    t.string   "start"
+    t.string   "end"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

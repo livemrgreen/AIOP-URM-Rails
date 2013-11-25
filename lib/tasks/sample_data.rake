@@ -91,11 +91,11 @@ def make_characteristics
 end
 
 def make_time_slots
-	TimeSlot.create(start_time: "8:00:00", end_time:"9:30:00")
-	TimeSlot.create(start_time: "9:45:00", end_time:"11:15:00")
-	TimeSlot.create(start_time: "11:30:00", end_time:"13:00:00")
-	TimeSlot.create(start_time: "14:00:00", end_time:"15:30:00")
-	TimeSlot.create(start_time: "15:45:00", end_time:"17:15:00")
+	TimeSlot.create(start: "8:00:00", end:"9:30:00")
+	TimeSlot.create(start: "9:45:00", end:"11:15:00")
+	TimeSlot.create(start: "11:30:00", end:"13:00:00")
+	TimeSlot.create(start: "14:00:00", end:"15:30:00")
+	TimeSlot.create(start: "15:45:00", end:"17:15:00")
 end
 
 def make_groups
@@ -336,7 +336,7 @@ end
 def make_reservation_requests
 	statuses = ["-1", "-2", nil]
 	15.times do |n|
-		ReservationRequest.create(date_time: Time.now, teaching_id: Random.rand(1..36),
+		ReservationRequest.create(date: Time.now, teaching_id: Random.rand(1..36),
 									time_slot_id: Random.rand(1..5), status: statuses.sample)
 	end
 end

@@ -30,4 +30,16 @@ class GroupsController < ApplicationController
 				{lesson: {include: [:subject, :lesson_type]}}]}}]),
 				root: "reservations", status: 200
 	end
+
+	def available_teachings
+		group = Group.find(params[:id])
+		teachings = group.teachings
+		teachings.select! {
+			|current_teaching|
+			current_teaching.reservation == nil
+		}
+		render json: teachings.as_json(include: [:group, :teacher,
+				{lesson: {include: [:subject, :lesson_type]}}]),
+				root: "teachings", status: 200
+	end
 end
