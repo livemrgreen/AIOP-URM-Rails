@@ -46,7 +46,10 @@ class TeachersController < ApplicationController
 					|current_request|
 					current_request.status == nil && current_request.reservation_id == nil
 				}
-				render json: requests.as_json(include: [:teaching, :reservation]),
+				render json: requests.as_json(include: [:reservation, :time_slot,
+					{teaching: {include: [:teacher,
+									{lesson: {include: [:lesson_type, :subject]}},
+									:group]}}]),
 						root: "reservation_requests", status: 200
 			else
 				render json: nil, status: 400

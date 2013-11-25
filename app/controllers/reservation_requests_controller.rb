@@ -46,12 +46,12 @@ class ReservationRequestsController < ApplicationController
 			|current_room|
 			current_room.capacity >= wanted_capacity
 		}
-		return available_rooms
+		render json: available_rooms, status: 200
 	end
 
 	private
 		def request_params
 			return params.require(:reservation_request).permit(:date,
-				:teaching_id, :time_slot_id)
+				:teaching_id, :time_slot_id, :capacity)
 		end
 end
