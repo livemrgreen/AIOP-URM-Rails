@@ -52,6 +52,6 @@ class ReservationRequestsController < ApplicationController
 	private
 		def request_params
 			return params.require(:reservation_request).permit(:date,
-				:teaching_id, :time_slot_id, :capacity)
+				:teaching_id, :time_slot_id, :capacity, :characteristics)
 		end
 end
